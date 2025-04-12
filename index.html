@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image to PDF Converter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Image to PDF Converter</h1>
+            <p>Convert your images to PDF with custom layouts and borders</p>
+        </header>
+
+        <main>
+            <div class="upload-area" id="dropArea">
+                <input type="file" id="fileInput" accept="image/*" multiple>
+                <label for="fileInput" class="upload-label">
+                    <div class="icon">📁</div>
+                    <h3>Drag & Drop Images Here</h3>
+                    <p>or click to browse files</p>
+                </label>
+            </div>
+
+            <div class="settings-panel">
+                <div class="setting-group">
+                    <label for="pageSize">Page Size:</label>
+                    <select id="pageSize">
+                        <option value="a4">A4 (210 × 297 mm)</option>
+                        <option value="letter">Letter (8.5 × 11 in)</option>
+                        <option value="legal">Legal (8.5 × 14 in)</option>
+                        <option value="custom">Custom</option>
+                    </select>
+                </div>
+
+                <div class="setting-group custom-size hidden" id="customSizeGroup">
+                    <label for="customWidth">Width (mm):</label>
+                    <input type="number" id="customWidth" min="50" max="500" value="210">
+                    <label for="customHeight">Height (mm):</label>
+                    <input type="number" id="customHeight" min="50" max="500" value="297">
+                </div>
+
+                <div class="setting-group">
+                    <label for="pageOrientation">Orientation:</label>
+                    <select id="pageOrientation">
+                        <option value="portrait">Portrait</option>
+                        <option value="landscape">Landscape</option>
+                    </select>
+                </div>
+
+                <div class="setting-group">
+                    <label for="pageSpread">Page Spread:</label>
+                    <select id="pageSpread">
+                        <option value="single">Single image per page</option>
+                        <option value="double">Two images per page</option>
+                        <option value="quad">Four images per page</option>
+                    </select>
+                </div>
+
+                <div class="setting-group">
+                    <label for="borderSize">Border Size (mm):</label>
+                    <input type="range" id="borderSize" min="0" max="50" value="5">
+                    <span id="borderSizeValue">5 mm</span>
+                </div>
+
+                <div class="setting-group">
+                    <label for="borderColor">Border Color:</label>
+                    <input type="color" id="borderColor" value="#cccccc">
+                </div>
+
+                <div class="setting-group">
+                    <label for="pdfName">PDF Name:</label>
+                    <input type="text" id="pdfName" placeholder="output.pdf">
+                </div>
+            </div>
+
+            <div class="preview-section">
+                <h3>Preview</h3>
+                <div class="preview-container" id="previewContainer">
+                    <p>Your PDF preview will appear here</p>
+                </div>
+            </div>
+
+            <div class="actions">
+                <button id="generateBtn" disabled>Generate PDF</button>
+                <button id="clearBtn">Clear All</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
